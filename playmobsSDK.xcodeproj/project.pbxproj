@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		092F7E1F171FBB38001A4CA3 /* PlaymobsClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F7E18171FBB38001A4CA3 /* PlaymobsClient.m */; };
+		092F7E20171FBB38001A4CA3 /* PlayMobsWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F7E1A171FBB38001A4CA3 /* PlayMobsWebViewController.m */; };
+		092F7E21171FBB38001A4CA3 /* PlayMobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 092F7E1D171FBB38001A4CA3 /* PlayMobsViewController.m */; };
+		092F7E22171FBB38001A4CA3 /* PlayMobsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 092F7E1E171FBB38001A4CA3 /* PlayMobsViewController.xib */; };
 		0937CA6D1716535B0053C6AF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA6C1716535B0053C6AF /* UIKit.framework */; };
 		0937CA6F1716535B0053C6AF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA6E1716535B0053C6AF /* Foundation.framework */; };
 		0937CA711716535B0053C6AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA701716535B0053C6AF /* CoreGraphics.framework */; };
@@ -24,9 +28,6 @@
 		0937CA931716535B0053C6AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA721716535B0053C6AF /* CoreData.framework */; };
 		0937CA9B1716535B0053C6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0937CA991716535B0053C6AF /* InfoPlist.strings */; };
 		0937CA9E1716535B0053C6AF /* playmobsSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */; };
-		0937CAAF171655440053C6AF /* PlayMobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0937CAAD171655440053C6AF /* PlayMobsViewController.m */; };
-		0937CAB0171655440053C6AF /* PlayMobsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0937CAAE171655440053C6AF /* PlayMobsViewController.xib */; };
-		0937CAB417165AB00053C6AF /* PlayMobsWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0937CAB317165AB00053C6AF /* PlayMobsWebView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		092F7E17171FBB38001A4CA3 /* PlaymobsClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaymobsClient.h; sourceTree = "<group>"; };
+		092F7E18171FBB38001A4CA3 /* PlaymobsClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaymobsClient.m; sourceTree = "<group>"; };
+		092F7E19171FBB38001A4CA3 /* PlayMobsWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMobsWebViewController.h; sourceTree = "<group>"; };
+		092F7E1A171FBB38001A4CA3 /* PlayMobsWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMobsWebViewController.m; sourceTree = "<group>"; };
+		092F7E1C171FBB38001A4CA3 /* PlayMobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMobsViewController.h; sourceTree = "<group>"; };
+		092F7E1D171FBB38001A4CA3 /* PlayMobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMobsViewController.m; sourceTree = "<group>"; };
+		092F7E1E171FBB38001A4CA3 /* PlayMobsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayMobsViewController.xib; sourceTree = "<group>"; };
 		0937CA691716535B0053C6AF /* playmobsSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = playmobsSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0937CA6C1716535B0053C6AF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0937CA6E1716535B0053C6AF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -61,11 +69,6 @@
 		0937CA9A1716535B0053C6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0937CA9C1716535B0053C6AF /* playmobsSDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playmobsSDKTests.h; sourceTree = "<group>"; };
 		0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playmobsSDKTests.m; sourceTree = "<group>"; };
-		0937CAAC171655440053C6AF /* PlayMobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMobsViewController.h; sourceTree = "<group>"; };
-		0937CAAD171655440053C6AF /* PlayMobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMobsViewController.m; sourceTree = "<group>"; };
-		0937CAAE171655440053C6AF /* PlayMobsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayMobsViewController.xib; sourceTree = "<group>"; };
-		0937CAB217165AB00053C6AF /* PlayMobsWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayMobsWebView.h; sourceTree = "<group>"; };
-		0937CAB317165AB00053C6AF /* PlayMobsWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayMobsWebView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +97,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F7E16171FBB38001A4CA3 /* PlaymobsSDK */ = {
+			isa = PBXGroup;
+			children = (
+				092F7E17171FBB38001A4CA3 /* PlaymobsClient.h */,
+				092F7E18171FBB38001A4CA3 /* PlaymobsClient.m */,
+				092F7E19171FBB38001A4CA3 /* PlayMobsWebViewController.h */,
+				092F7E1A171FBB38001A4CA3 /* PlayMobsWebViewController.m */,
+			);
+			path = PlaymobsSDK;
+			sourceTree = "<group>";
+		};
+		092F7E1B171FBB38001A4CA3 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				092F7E1C171FBB38001A4CA3 /* PlayMobsViewController.h */,
+				092F7E1D171FBB38001A4CA3 /* PlayMobsViewController.m */,
+				092F7E1E171FBB38001A4CA3 /* PlayMobsViewController.xib */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		0937CA601716535B0053C6AF = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +152,8 @@
 		0937CA741716535B0053C6AF /* playmobsSDK */ = {
 			isa = PBXGroup;
 			children = (
-				0937CAB1171659D20053C6AF /* PlaymobsSDK */,
-				0937CAAB1716544A0053C6AF /* ViewControllers */,
+				092F7E16171FBB38001A4CA3 /* PlaymobsSDK */,
+				092F7E1B171FBB38001A4CA3 /* ViewControllers */,
 				0937CA7D1716535B0053C6AF /* AppDelegate.h */,
 				0937CA7E1716535B0053C6AF /* AppDelegate.m */,
 				0937CA861716535B0053C6AF /* playmobsSDK.xcdatamodeld */,
@@ -169,25 +193,6 @@
 				0937CA991716535B0053C6AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		0937CAAB1716544A0053C6AF /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				0937CAAC171655440053C6AF /* PlayMobsViewController.h */,
-				0937CAAD171655440053C6AF /* PlayMobsViewController.m */,
-				0937CAAE171655440053C6AF /* PlayMobsViewController.xib */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		0937CAB1171659D20053C6AF /* PlaymobsSDK */ = {
-			isa = PBXGroup;
-			children = (
-				0937CAB217165AB00053C6AF /* PlayMobsWebView.h */,
-				0937CAB317165AB00053C6AF /* PlayMobsWebView.m */,
-			);
-			path = PlaymobsSDK;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +270,7 @@
 				0937CA811716535B0053C6AF /* Default.png in Resources */,
 				0937CA831716535B0053C6AF /* Default@2x.png in Resources */,
 				0937CA851716535B0053C6AF /* Default-568h@2x.png in Resources */,
-				0937CAB0171655440053C6AF /* PlayMobsViewController.xib in Resources */,
+				092F7E22171FBB38001A4CA3 /* PlayMobsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +308,9 @@
 				0937CA7B1716535B0053C6AF /* main.m in Sources */,
 				0937CA7F1716535B0053C6AF /* AppDelegate.m in Sources */,
 				0937CA881716535B0053C6AF /* playmobsSDK.xcdatamodeld in Sources */,
-				0937CAAF171655440053C6AF /* PlayMobsViewController.m in Sources */,
-				0937CAB417165AB00053C6AF /* PlayMobsWebView.m in Sources */,
+				092F7E1F171FBB38001A4CA3 /* PlaymobsClient.m in Sources */,
+				092F7E20171FBB38001A4CA3 /* PlayMobsWebViewController.m in Sources */,
+				092F7E21171FBB38001A4CA3 /* PlayMobsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

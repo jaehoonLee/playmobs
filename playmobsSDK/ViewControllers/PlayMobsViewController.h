@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "PlaymobsClient.h"
 @interface PlayMobsViewController : UIViewController
+{
+    PlaymobsClient * playMobs;
+    
+}
 - (IBAction)buttonOnClickAction;
 @end

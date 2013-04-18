@@ -7,7 +7,6 @@
 //
 
 #import "PlayMobsViewController.h"
-#import "PlayMobsWebView.h"
 
 @interface PlayMobsViewController ()
 
@@ -20,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        playMobs = [[PlaymobsClient alloc] initWithDelegate:self appID:@"59080003" userID:@"00000009"];
     }
     return self;
 }
@@ -39,8 +39,9 @@
 #pragma mark - IBAction
 - (IBAction)buttonOnClickAction
 {
-    PlayMobsWebView * webView = [[PlayMobsWebView alloc] initWithFrame:CGRectMake(50, 50, 200, 300)];
-    [self.view addSubview:webView];
+//    PlayMobsWebView * webView = [[PlayMobsWebView alloc] initWithFrame:CGRectMake(50, 50, 200, 300)];
+//    [self.view addSubview:webView];
+    [playMobs initiate:self];
 }
 
 @end
