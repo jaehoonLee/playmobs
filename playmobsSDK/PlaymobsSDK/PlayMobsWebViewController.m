@@ -7,6 +7,7 @@
 //
 
 #import "PlayMobsWebViewController.h"
+#import "SBJson.h"
 
 @interface PlayMobsWebViewController ()
 
@@ -73,6 +74,9 @@
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"]]; //appstore
     }
 
+    NSString * parseStr = @"{\"id\":\"Hello\", \"wow\":\"male\"}";
+    NSDictionary* dict = [[[SBJsonParser alloc] init] objectWithString:parseStr];
+    NSLog(@"DICT:%@", dict);
     
     return YES;
 }
