@@ -49,14 +49,32 @@
 #pragma mark - UIWebViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-//    NSLog([webView.request.URL absoluteString]);
     NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-//    NSLog(html);
+    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+    NSLog(@"Test:%@\n%@", [webView.request.URL absoluteString], html);
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSLog(@"TestTest:%@", request.URL.absoluteString);
+    if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/bridgeGoBack"])
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+        return NO;
+    }else if([[request.URL absoluteString] isEqualToString:@"http"])
+    {
+        
+        BOOL app = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"googlechrome://"]]; //app
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"]]; //appstore
+    }
+
     
+    return YES;
 }
 
 @end
