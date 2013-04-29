@@ -36,7 +36,7 @@
 #pragma mark - PlaymobsClientDelegate
 - (void)onComplete
 {
-    
+    NSLog(@"OnComplete");
     
 }
 

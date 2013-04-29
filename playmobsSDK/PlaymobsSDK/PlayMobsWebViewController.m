@@ -8,6 +8,7 @@
 
 #import "PlayMobsWebViewController.h"
 #import "SBJson.h"
+#import "UdidHelper.h"
 
 @interface PlayMobsWebViewController ()
 
@@ -15,7 +16,7 @@
 
 @implementation PlayMobsWebViewController
 
-- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID
+- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID delegate:(id<PlaymobsClientDelegate>)delegate
 {
     self = [super init];
     if (self) {
@@ -32,6 +33,7 @@
         [self.view addSubview:playMobsView];
         
         _appID = appID;
+        _delegate = delegate;
     }
     return self;
 }
@@ -39,7 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+//	// Do any additional setup after loading the view.
+//    NSLog(@"%@", [UdidHelper getHashedMacAddress]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,7 +56,7 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
+//    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
     NSDictionary* dict = [[[SBJsonParser alloc] init] objectWithString:html];
     if ([[dict objectForKey:@"result"] isEqualToString:@"YES"])
     {
@@ -61,6 +64,21 @@
         if(app == NO)
         {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict objectForKey:@"url"]]]; //appstore
+        }
+        else
+        {
+            NSLog(@"Request Success");
+            NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/campaign/iphone/install"];
+            NSURL * url = [NSURL URLWithString:urlStr];
+            NSMutableURLRequest * requestPOST = [NSMutableURLRequest requestWithURL:url];
+            [requestPOST setHTTPMethod:@"POST"];
+            
+            NSString *paramDataString =[NSString stringWithFormat:@"appid=%@&promotion_idx=%@&udid=%@", _appID, _promotion_idx, [UdidHelper getHashedMacAddress]];
+            NSData *paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
+            [requestPOST setHTTPBody:paramData];
+            
+            [playMobsView loadRequest:requestPOST];
+            [_delegate onComplete];
         }
     }
 }
@@ -74,15 +92,16 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSArray * urlArr = [request.URL.absoluteString componentsSeparatedByString:@"/"];
-    NSLog(@"TestTest:%@ %@", request.URL.absoluteString, [urlArr objectAtIndex:(urlArr.count - 2)]);
+//    NSLog(@"TestTest:%@ %@", request.URL.absoluteString, [urlArr objectAtIndex:(urlArr.count - 2)]);
     
-    if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/bridgeGoBack"])
+    
+    if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/bridgeGoBack"])//뒤로가기 버튼
     {
         [self dismissViewControllerAnimated:YES completion:nil];
         return NO;
-    }else if([[request.URL absoluteString] isEqualToString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"])
+    }
+    else if([[request.URL absoluteString] isEqualToString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"])//앱스토어 확인하는 부분.
     {
-//        NSString * promotion_idx =[request.URL.absoluteString componentsSeparatedByString:@"/"].lastObject;
         NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/campaign/iphone/promotion_info"];
         NSURL * url = [NSURL URLWithString:urlStr];
         NSMutableURLRequest * requestPOST = [NSMutableURLRequest requestWithURL:url];
@@ -93,17 +112,12 @@
         [requestPOST setHTTPBody:paramData];
         
         [playMobsView loadRequest:requestPOST];
-        
-//        BOOL app = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"googlechrome://"]]; //app
-//        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"]]; //appstore
         return NO;
-    }else if([[urlArr objectAtIndex:(urlArr.count - 2)] isEqualToString:@"info_iphone"])
+    }
+    else if([[urlArr objectAtIndex:(urlArr.count - 2)] isEqualToString:@"info_iphone"]) //해당 웹페이지로 들어갈 때 promotion_idx 저장해두기.
     {
         _promotion_idx = urlArr.lastObject;
     }
-
-//    NSString * parseStr = @"{\"id\":\"Hello\", \"wow\":\"male\"}";
-//    NSDictionary* dict = [[[SBJsonParser alloc] init] objectWithString:parseStr];
     
     return YES;
 }

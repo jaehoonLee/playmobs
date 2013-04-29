@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PlaymobsClient.h"
 
 @interface PlayMobsWebViewController : UIViewController<UIWebViewDelegate>
 {
+    id<PlaymobsClientDelegate> _delegate;
     UIWebView * playMobsView;
     NSString * _appID;
     NSString * _promotion_idx;

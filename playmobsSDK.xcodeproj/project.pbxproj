@@ -28,6 +28,9 @@
 		0937CA931716535B0053C6AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA721716535B0053C6AF /* CoreData.framework */; };
 		0937CA9B1716535B0053C6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0937CA991716535B0053C6AF /* InfoPlist.strings */; };
 		0937CA9E1716535B0053C6AF /* playmobsSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */; };
+		2897772B172E4D5C008CCD12 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = 28977727172E4D5C008CCD12 /* IPAddress.c */; };
+		2897772C172E4D5C008CCD12 /* UdidHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897772A172E4D5C008CCD12 /* UdidHelper.m */; };
+		28977732172E4DDA008CCD12 /* NSStringMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 28977731172E4DDA008CCD12 /* NSStringMD5.m */; };
 		28B0C8471725336E006BD47A /* .gitattributes in Resources */ = {isa = PBXBuildFile; fileRef = 28B0C6891725336D006BD47A /* .gitattributes */; };
 		28B0C8481725336E006BD47A /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 28B0C68A1725336D006BD47A /* .gitignore */; };
 		28B0C8491725336E006BD47A /* CREDITS.md in Resources */ = {isa = PBXBuildFile; fileRef = 28B0C68B1725336D006BD47A /* CREDITS.md */; };
@@ -121,6 +124,12 @@
 		0937CA9A1716535B0053C6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0937CA9C1716535B0053C6AF /* playmobsSDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playmobsSDKTests.h; sourceTree = "<group>"; };
 		0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playmobsSDKTests.m; sourceTree = "<group>"; };
+		28977727172E4D5C008CCD12 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
+		28977728172E4D5C008CCD12 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
+		28977729172E4D5C008CCD12 /* UdidHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdidHelper.h; sourceTree = "<group>"; };
+		2897772A172E4D5C008CCD12 /* UdidHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UdidHelper.m; sourceTree = "<group>"; };
+		28977730172E4DDA008CCD12 /* NSStringMD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSStringMD5.h; sourceTree = "<group>"; };
+		28977731172E4DDA008CCD12 /* NSStringMD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSStringMD5.m; sourceTree = "<group>"; };
 		28B0C6891725336D006BD47A /* .gitattributes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitattributes; sourceTree = "<group>"; };
 		28B0C68A1725336D006BD47A /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		28B0C68B1725336D006BD47A /* CREDITS.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CREDITS.md; sourceTree = "<group>"; };
@@ -192,6 +201,7 @@
 		092F7E16171FBB38001A4CA3 /* PlaymobsSDK */ = {
 			isa = PBXGroup;
 			children = (
+				28977726172E4D5C008CCD12 /* UDID */,
 				092F7E17171FBB38001A4CA3 /* PlaymobsClient.h */,
 				092F7E18171FBB38001A4CA3 /* PlaymobsClient.m */,
 				092F7E19171FBB38001A4CA3 /* PlayMobsWebViewController.h */,
@@ -286,6 +296,19 @@
 				0937CA991716535B0053C6AF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28977726172E4D5C008CCD12 /* UDID */ = {
+			isa = PBXGroup;
+			children = (
+				28977727172E4D5C008CCD12 /* IPAddress.c */,
+				28977728172E4D5C008CCD12 /* IPAddress.h */,
+				28977729172E4D5C008CCD12 /* UdidHelper.h */,
+				2897772A172E4D5C008CCD12 /* UdidHelper.m */,
+				28977730172E4DDA008CCD12 /* NSStringMD5.h */,
+				28977731172E4DDA008CCD12 /* NSStringMD5.m */,
+			);
+			path = UDID;
 			sourceTree = "<group>";
 		};
 		28B0C6871725336D006BD47A /* lib */ = {
@@ -604,6 +627,9 @@
 				28B0C86B1725336E006BD47A /* SBJsonStreamWriterAccumulator.m in Sources */,
 				28B0C86C1725336E006BD47A /* SBJsonStreamWriterState.m in Sources */,
 				28B0C86D1725336E006BD47A /* SBJsonWriter.m in Sources */,
+				2897772B172E4D5C008CCD12 /* IPAddress.c in Sources */,
+				2897772C172E4D5C008CCD12 /* UdidHelper.m in Sources */,
+				28977732172E4DDA008CCD12 /* NSStringMD5.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
