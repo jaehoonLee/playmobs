@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @protocol PlaymobsClientDelegate <NSObject>
 @required
-- (void)onComplete;
+- (void)onComplete:(NSDictionary *)jsonDic;
 @end
 
 @interface PlaymobsClient : NSObject

@@ -27,7 +27,7 @@
 {
     UIViewController * parentViewController = (UIViewController *)self.delegate;
     
-    PlayMobsWebViewController * viewController = [[PlayMobsWebViewController alloc] initWithAppID:_appID userID:_userID];
+    PlayMobsWebViewController * viewController = [[PlayMobsWebViewController alloc] initWithAppID:_appID userID:_userID delegate:self.delegate];
     [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [viewController.view setBackgroundColor:[UIColor blackColor]];
     [parentViewController presentViewController:viewController animated:YES completion:^{

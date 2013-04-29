@@ -16,5 +16,5 @@
     NSString * _appID;
     NSString * _promotion_idx;
 }
-- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID;
+- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID delegate:(id<PlaymobsClientDelegate>)delegate;
 @end

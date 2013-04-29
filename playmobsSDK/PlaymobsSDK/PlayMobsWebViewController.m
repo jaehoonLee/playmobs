@@ -58,7 +58,7 @@
     NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
 //    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
     NSDictionary* dict = [[[SBJsonParser alloc] init] objectWithString:html];
-    if ([[dict objectForKey:@"result"] isEqualToString:@"YES"])
+    if ([[dict objectForKey:@"type"] isEqualToString:@"request"])
     {
         BOOL app = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://",[dict objectForKey:@"scheme"]]]]; //app
         if(app == NO)
@@ -73,14 +73,21 @@
             NSMutableURLRequest * requestPOST = [NSMutableURLRequest requestWithURL:url];
             [requestPOST setHTTPMethod:@"POST"];
             
-            NSString *paramDataString =[NSString stringWithFormat:@"appid=%@&promotion_idx=%@&udid=%@", _appID, _promotion_idx, [UdidHelper getHashedMacAddress]];
+            NSString *paramDataString =[NSString stringWithFormat:@"appid=%@&promotion_idx=%@&id=%@", _appID, _promotion_idx, [UdidHelper getHashedMacAddress]];
+            NSLog(@"Parameter:%@", paramDataString );
             NSData *paramData = [paramDataString dataUsingEncoding:NSUTF8StringEncoding];
             [requestPOST setHTTPBody:paramData];
             
             [playMobsView loadRequest:requestPOST];
-            [_delegate onComplete];
         }
+
     }
+    else if([[dict objectForKey:@"type"] isEqualToString:@"iphone"])
+    {
+        [_delegate onComplete:dict];
+    }
+    
+    NSLog(@"%@", dict);
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
