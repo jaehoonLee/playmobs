@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "PlaymobsClient.h"
-@interface PlayMobsViewController : UIViewController
+@interface PlayMobsViewController : UIViewController<PlaymobsClientDelegate>
 {
     PlaymobsClient * playMobs;
-    
 }
 - (IBAction)buttonOnClickAction;
 @end

@@ -23,12 +23,14 @@
     return self;
 }
 
-- (void)initiate:(UIViewController *)playmobsView
+- (void)initiate
 {
+    UIViewController * parentViewController = (UIViewController *)self.delegate;
+    
     PlayMobsWebViewController * viewController = [[PlayMobsWebViewController alloc] initWithAppID:_appID userID:_userID];
     [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [viewController.view setBackgroundColor:[UIColor blackColor]];
-    [playmobsView presentViewController:viewController animated:YES completion:^{
+    [parentViewController presentViewController:viewController animated:YES completion:^{
         NSLog(@"OnComplete");
     }];
 }

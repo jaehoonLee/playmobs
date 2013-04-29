@@ -11,6 +11,8 @@
 @interface PlayMobsWebViewController : UIViewController<UIWebViewDelegate>
 {
     UIWebView * playMobsView;
+    NSString * _appID;
+    NSString * _promotion_idx;
 }
 - (id)initWithAppID:(NSString *)appID userID:(NSString *)userID;
 @end

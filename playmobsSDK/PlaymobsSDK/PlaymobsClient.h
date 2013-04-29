@@ -19,6 +19,6 @@
     NSString * _userID;
 }
 - (id)initWithDelegate:(id)delegate appID:(NSString *)appID userID:(NSString *)userID;
-- (void)initiate:(UIViewController *)playmobsView;
+- (void)initiate;
 @property(nonatomic, strong) id<PlaymobsClientDelegate> delegate;
 @end
