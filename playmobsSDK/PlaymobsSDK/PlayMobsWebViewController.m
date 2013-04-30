@@ -56,14 +56,17 @@
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
     NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-//    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
+    NSLog(@"%@\n%@", [webView.request.URL absoluteString], html);
     NSDictionary* dict = [[[SBJsonParser alloc] init] objectWithString:html];
     if ([[dict objectForKey:@"type"] isEqualToString:@"request"])
     {
         BOOL app = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://",[dict objectForKey:@"scheme"]]]]; //app
         if(app == NO)
         {
+            NSLog(@"Request Failed");
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict objectForKey:@"url"]]]; //appstore
+            
+            
         }
         else
         {
