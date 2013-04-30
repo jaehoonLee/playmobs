@@ -31,7 +31,7 @@
         if (theAddr == 0) break;
         if (theAddr == localHost) continue;
         
-//        NSLog(@"Name: %s MAC: %s IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
+        NSLog(@"Name: %s MAC: %s IP: %s\n", if_names[i], hw_addrs[i], ip_names[i]);
         
         //decided what adapter you want details for
         if (strncmp(if_names[i], "en", 2) == 0)
