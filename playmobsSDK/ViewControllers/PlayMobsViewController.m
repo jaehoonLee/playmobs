@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        playMobs = [[PlaymobsClient alloc] initWithDelegate:self appID:@"59080003" userID:@"00000009"];
+        playMobs = [[PlaymobsClient alloc] initWithDelegate:self appID:@"59080003" uID:@"00000001"];
     }
     return self;
 }
@@ -36,11 +36,28 @@
 #pragma mark - PlaymobsClientDelegate
 - (void)onComplete:(NSDictionary *)jsonDic
 {
-    NSLog(@"OnComplete");
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"제목" message:@"100만포인트가 지원되었습니다"
-                                                        delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil];
-    [alertView show];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"OnComplete:%@",jsonDic);
+    if([[jsonDic objectForKey:@"code"] isEqualToString:@"021"])
+    {
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"제목" message:[NSString stringWithFormat:@"실패하였습니다.[%@]", [jsonDic objectForKey:@"code"]]
+                                                            delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil];
+        [alertView show];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+    else{
+        NSString * pointStr = [NSString stringWithFormat:@"%@포인트가 지원되었습니다", [jsonDic objectForKey:@"point"]];
+        UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"제목" message:pointStr
+                                                            delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil];
+        [alertView show];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+
+    }
+}
+
+- (void)serviceStatusOnComplete:(NSDictionary *)jsonDic
+{
+    NSLog(@"%@", jsonDic);
 }
 
 #pragma mark - IBAction
@@ -48,5 +65,11 @@
 {
     [playMobs initiate];
 }
+
+- (IBAction)serviceStatusButtonOnClickAction
+{
+    [playMobs serviceStatus];
+}
+
 
 @end

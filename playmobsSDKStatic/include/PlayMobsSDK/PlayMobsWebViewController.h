@@ -14,9 +14,7 @@
     id<PlaymobsClientDelegate> _delegate;
     UIWebView * playMobsView;
     NSString * _appID;
-    NSString * _userID;
-    NSString * _uID;
     NSString * _promotion_idx;
 }
-- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID uID:(NSString *)uID delegate:(id<PlaymobsClientDelegate>)delegate;
+- (id)initWithAppID:(NSString *)appID userID:(NSString *)userID delegate:(id<PlaymobsClientDelegate>)delegate;
 @end
