@@ -55,7 +55,6 @@
 
 #pragma mark - UIWebViewDelegate
 //웹페이지 request 중간에 호출됩니다.
->>>>>>> 70f7121cbc4aec2677696da398fcb6d9d71cf2bd
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSArray * urlArr = [request.URL.absoluteString componentsSeparatedByString:@"/"];

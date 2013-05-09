@@ -38,6 +38,7 @@
 		09FE6014173B29A900CF4E13 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE6008173B29A900CF4E13 /* SBJsonStreamWriterAccumulator.m */; };
 		09FE6015173B29A900CF4E13 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE600A173B29A900CF4E13 /* SBJsonStreamWriterState.m */; };
 		09FE6016173B29A900CF4E13 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE600C173B29A900CF4E13 /* SBJsonWriter.m */; };
+		09FE6019173B2A5200CF4E13 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 09FE6018173B2A5200CF4E13 /* icon.png */; };
 		2897772B172E4D5C008CCD12 /* IPAddress.c in Sources */ = {isa = PBXBuildFile; fileRef = 28977727172E4D5C008CCD12 /* IPAddress.c */; };
 		2897772C172E4D5C008CCD12 /* UdidHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2897772A172E4D5C008CCD12 /* UdidHelper.m */; };
 		28977732172E4DDA008CCD12 /* NSStringMD5.m in Sources */ = {isa = PBXBuildFile; fileRef = 28977731172E4DDA008CCD12 /* NSStringMD5.m */; };
@@ -103,6 +104,7 @@
 		09FE600A173B29A900CF4E13 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonStreamWriterState.m; path = lib/SBJsonStreamWriterState.m; sourceTree = SOURCE_ROOT; };
 		09FE600B173B29A900CF4E13 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = lib/SBJsonWriter.h; sourceTree = SOURCE_ROOT; };
 		09FE600C173B29A900CF4E13 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = lib/SBJsonWriter.m; sourceTree = SOURCE_ROOT; };
+		09FE6018173B2A5200CF4E13 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		28977727172E4D5C008CCD12 /* IPAddress.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = IPAddress.c; sourceTree = "<group>"; };
 		28977728172E4D5C008CCD12 /* IPAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPAddress.h; sourceTree = "<group>"; };
 		28977729172E4D5C008CCD12 /* UdidHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UdidHelper.h; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		0937CA741716535B0053C6AF /* playmobsSDK */ = {
 			isa = PBXGroup;
 			children = (
+				09FE6017173B2A5200CF4E13 /* image */,
 				28B0C6871725336D006BD47A /* lib */,
 				092F7E16171FBB38001A4CA3 /* PlaymobsSDK */,
 				092F7E1B171FBB38001A4CA3 /* ViewControllers */,
@@ -236,6 +239,14 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
+		};
+		09FE6017173B2A5200CF4E13 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				09FE6018173B2A5200CF4E13 /* icon.png */,
+			);
+			path = image;
+			sourceTree = SOURCE_ROOT;
 		};
 		28977726172E4D5C008CCD12 /* UDID */ = {
 			isa = PBXGroup;
@@ -363,6 +374,7 @@
 				0937CA831716535B0053C6AF /* Default@2x.png in Resources */,
 				0937CA851716535B0053C6AF /* Default-568h@2x.png in Resources */,
 				092F7E22171FBB38001A4CA3 /* PlayMobsViewController.xib in Resources */,
+				09FE6019173B2A5200CF4E13 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
