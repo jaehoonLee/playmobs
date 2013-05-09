@@ -18,9 +18,8 @@
     id<PlaymobsClientDelegate> _delegate;
     NSString * _appID;
     NSString * _userID;
-    NSString * _uID;
 }
-- (id)initWithDelegate:(id)delegate appID:(NSString *)appID uID:(NSString *)uID;
+- (id)initWithDelegate:(id)delegate appID:(NSString *)appID userID:(NSString *)userID;
 - (void)initiate;
 - (void)serviceStatus;
 @property(nonatomic, strong) id<PlaymobsClientDelegate> delegate;
