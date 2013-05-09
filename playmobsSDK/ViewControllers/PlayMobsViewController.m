@@ -37,7 +37,8 @@
 - (void)onComplete:(NSDictionary *)jsonDic
 {
     NSLog(@"OnComplete");
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"제목" message:@"100만포인트가 지원되었습니다" delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil];
+    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"제목" message:@"100만포인트가 지원되었습니다"
+                                                        delegate:self cancelButtonTitle:@"확인" otherButtonTitles:nil];
     [alertView show];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -45,8 +46,6 @@
 #pragma mark - IBAction
 - (IBAction)buttonOnClickAction
 {
-    //    PlayMobsWebView * webView = [[PlayMobsWebView alloc] initWithFrame:CGRectMake(50, 50, 200, 300)];
-    //    [self.view addSubview:webView];
     [playMobs initiate];
 }
 

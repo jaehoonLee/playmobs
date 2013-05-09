@@ -42,7 +42,7 @@
 {
     [super viewDidLoad];
 //	// Do any additional setup after loading the view.
-//    NSLog(@"%@", [UdidHelper getHashedMacAddress]);
+    NSLog(@"%@", [UdidHelper getHashedMacAddress]);
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,14 +63,15 @@
         BOOL app = [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@://",[dict objectForKey:@"scheme"]]]]; //app
         if(app == NO)
         {
-            NSLog(@"Request Failed");
+            [playMobsView stringByEvaluatingJavaScriptFromString:@"document.open();document.close()"];
+            NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/publish/info_iphone/%@", _promotion_idx];
+            NSURL * url = [NSURL URLWithString:urlStr];
+            NSMutableURLRequest * requestGET = [NSMutableURLRequest requestWithURL:url];
+            [playMobsView loadRequest:requestGET];
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[dict objectForKey:@"url"]]]; //appstore
-            
-            
         }
         else
         {
-            NSLog(@"Request Success");
             NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/campaign/iphone/install"];
             NSURL * url = [NSURL URLWithString:urlStr];
             NSMutableURLRequest * requestPOST = [NSMutableURLRequest requestWithURL:url];
@@ -89,20 +90,19 @@
     {
         [_delegate onComplete:dict];
     }
-    
-    NSLog(@"%@", dict);
 }
 
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
-    NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+//    NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
 //    NSLog(@"Test:%@\n%@", [webView.request.URL absoluteString], html);
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSArray * urlArr = [request.URL.absoluteString componentsSeparatedByString:@"/"];
-//    NSLog(@"TestTest:%@ %@", request.URL.absoluteString, [urlArr objectAtIndex:(urlArr.count - 2)]);
+    NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
+//    NSLog(@"TestTest:%@ %@", request.URL.absoluteString, html);
     
     
     if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/bridgeGoBack"])//뒤로가기 버튼
@@ -110,7 +110,7 @@
         [self dismissViewControllerAnimated:YES completion:nil];
         return NO;
     }
-    else if([[request.URL absoluteString] isEqualToString:@"itms-appss://itunes.apple.com/app/chrome/id535886823?mt=8"])//앱스토어 확인하는 부분.
+    else if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/store"])//앱스토어 확인하는 부분.
     {
         NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/campaign/iphone/promotion_info"];
         NSURL * url = [NSURL URLWithString:urlStr];
@@ -124,6 +124,10 @@
         [playMobsView loadRequest:requestPOST];
         return NO;
     }
+    else if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/promotion_info"])
+    {
+        return YES;
+    }
     else if([[urlArr objectAtIndex:(urlArr.count - 2)] isEqualToString:@"info_iphone"]) //해당 웹페이지로 들어갈 때 promotion_idx 저장해두기.
     {
         _promotion_idx = urlArr.lastObject;
@@ -131,5 +135,4 @@
     
     return YES;
 }
-
 @end

@@ -31,12 +31,7 @@
     [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [viewController.view setBackgroundColor:[UIColor blackColor]];
     [parentViewController presentViewController:viewController animated:YES completion:^{
-        NSLog(@"OnComplete");
+        
     }];
-}
-
-- (void)onComplete
-{
-    NSLog(@"onComplete");
 }
 @end
