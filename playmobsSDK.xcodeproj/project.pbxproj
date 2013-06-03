@@ -28,6 +28,9 @@
 		0937CA931716535B0053C6AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0937CA721716535B0053C6AF /* CoreData.framework */; };
 		0937CA9B1716535B0053C6AF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0937CA991716535B0053C6AF /* InfoPlist.strings */; };
 		0937CA9E1716535B0053C6AF /* playmobsSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */; };
+		09F75395175C8A2E00470AFC /* title@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F75394175C8A2E00470AFC /* title@2x.png */; };
+		09F75397175C8A3700470AFC /* title.png in Resources */ = {isa = PBXBuildFile; fileRef = 09F75396175C8A3700470AFC /* title.png */; };
+		09F7539A175C920600470AFC /* FacebookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09F75399175C920600470AFC /* FacebookViewController.m */; };
 		09FE600D173B29A900CF4E13 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5FFA173B29A900CF4E13 /* SBJsonParser.m */; };
 		09FE600E173B29A900CF4E13 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5FFC173B29A900CF4E13 /* SBJsonStreamParser.m */; };
 		09FE600F173B29A900CF4E13 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = 09FE5FFE173B29A900CF4E13 /* SBJsonStreamParserAccumulator.m */; };
@@ -83,6 +86,10 @@
 		0937CA9A1716535B0053C6AF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0937CA9C1716535B0053C6AF /* playmobsSDKTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = playmobsSDKTests.h; sourceTree = "<group>"; };
 		0937CA9D1716535B0053C6AF /* playmobsSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = playmobsSDKTests.m; sourceTree = "<group>"; };
+		09F75394175C8A2E00470AFC /* title@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "title@2x.png"; sourceTree = "<group>"; };
+		09F75396175C8A3700470AFC /* title.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = title.png; sourceTree = "<group>"; };
+		09F75398175C920600470AFC /* FacebookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookViewController.h; sourceTree = "<group>"; };
+		09F75399175C920600470AFC /* FacebookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookViewController.m; sourceTree = "<group>"; };
 		09FE5FF8173B29A900CF4E13 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJson.h; path = lib/SBJson.h; sourceTree = SOURCE_ROOT; };
 		09FE5FF9173B29A900CF4E13 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonParser.h; path = lib/SBJsonParser.h; sourceTree = SOURCE_ROOT; };
 		09FE5FFA173B29A900CF4E13 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonParser.m; path = lib/SBJsonParser.m; sourceTree = SOURCE_ROOT; };
@@ -147,6 +154,8 @@
 				092F7E18171FBB38001A4CA3 /* PlaymobsClient.m */,
 				092F7E19171FBB38001A4CA3 /* PlayMobsWebViewController.h */,
 				092F7E1A171FBB38001A4CA3 /* PlayMobsWebViewController.m */,
+				09F75398175C920600470AFC /* FacebookViewController.h */,
+				09F75399175C920600470AFC /* FacebookViewController.m */,
 			);
 			path = PlaymobsSDK;
 			sourceTree = "<group>";
@@ -244,6 +253,8 @@
 			isa = PBXGroup;
 			children = (
 				09FE6018173B2A5200CF4E13 /* icon.png */,
+				09F75394175C8A2E00470AFC /* title@2x.png */,
+				09F75396175C8A3700470AFC /* title.png */,
 			);
 			path = image;
 			sourceTree = SOURCE_ROOT;
@@ -375,6 +386,8 @@
 				0937CA851716535B0053C6AF /* Default-568h@2x.png in Resources */,
 				092F7E22171FBB38001A4CA3 /* PlayMobsViewController.xib in Resources */,
 				09FE6019173B2A5200CF4E13 /* icon.png in Resources */,
+				09F75395175C8A2E00470AFC /* title@2x.png in Resources */,
+				09F75397175C8A3700470AFC /* title.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,6 +441,7 @@
 				09FE6014173B29A900CF4E13 /* SBJsonStreamWriterAccumulator.m in Sources */,
 				09FE6015173B29A900CF4E13 /* SBJsonStreamWriterState.m in Sources */,
 				09FE6016173B29A900CF4E13 /* SBJsonWriter.m in Sources */,
+				09F7539A175C920600470AFC /* FacebookViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

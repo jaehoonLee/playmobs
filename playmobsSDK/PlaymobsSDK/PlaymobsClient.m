@@ -30,11 +30,12 @@
 - (void)initiate
 {
     UIViewController * parentViewController = (UIViewController *)self.delegate;
-    
     PlayMobsWebViewController * viewController = [[PlayMobsWebViewController alloc] initWithAppID:_appID userID:_userID uID:_uID delegate:self.delegate];
+    UINavigationController * navCon = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [navCon setNavigationBarHidden:YES];
     [viewController setModalTransitionStyle:UIModalTransitionStyleFlipHorizontal];
     [viewController.view setBackgroundColor:[UIColor blackColor]];
-    [parentViewController presentViewController:viewController animated:YES completion:^{
+    [parentViewController presentViewController:navCon animated:YES completion:^{
         
     }];
 }

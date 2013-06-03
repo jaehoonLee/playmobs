@@ -9,6 +9,7 @@
 #import "PlayMobsWebViewController.h"
 #import "SBJson.h"
 #import "UdidHelper.h"
+#import "FacebookViewController.h"
 
 @interface PlayMobsWebViewController ()
 
@@ -59,7 +60,7 @@
 {
     NSArray * urlArr = [request.URL.absoluteString componentsSeparatedByString:@"/"];
     NSString *html = [webView stringByEvaluatingJavaScriptFromString:@"document.body.innerHTML"];
-    
+    NSLog(@"%@", request.URL.absoluteString );
     if([[request.URL absoluteString] isEqualToString:@"http://playmobs.com/campaign/iphone/bridgeGoBack"])//뒤로가기 버튼
     {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -95,6 +96,19 @@
         NSMutableDictionary * result = [[NSMutableDictionary alloc] init];
         [result setObject:[urlArr objectAtIndex:(urlArr.count - 1)] forKey:@"code"];
         [_delegate onComplete:result];
+        return NO;
+    }else if(([urlArr count] >= 3) && [[urlArr objectAtIndex:2] isEqualToString:@"m.facebook.com"])
+    {
+        FacebookViewController * facebook = [[FacebookViewController alloc] initWithURL:request.URL.absoluteString];
+        facebook.view.frame = CGRectMake(0, 0, 320, 460);
+        [self.navigationController pushViewController:facebook animated:YES];
+        
+        NSString* urlStr = [NSString stringWithFormat:@"http://playmobs.com/publish/info_iphone/%@", _promotion_idx];
+        NSURL * url = [NSURL URLWithString:urlStr];
+        NSMutableURLRequest * requestGET = [NSMutableURLRequest requestWithURL:url];
+        
+        [playMobsView loadRequest:requestGET];
+        
         return NO;
     }
     
