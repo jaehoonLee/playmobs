@@ -41,15 +41,15 @@
     [super viewWillAppear:animated];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"title.png"] forBarMetrics:UIBarMetricsDefault];
     
-    UIImage *buttonImage = [UIImage imageNamed:@"title.png"];
+    UIImage *buttonImage = [UIImage imageNamed:@"back_arrow.png"];
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setBackgroundImage:buttonImage forState:UIControlStateNormal];
-    backButton.frame = CGRectMake(0, 0,30, 30);
+    backButton.frame = CGRectMake(0, 0, 30, 25);
     [backButton addTarget:self action:@selector(backButtonOnAction) forControlEvents:UIControlEventTouchUpInside];
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     
-    [self.navigationItem.backBarButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"title.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    [self.navigationItem.backBarButtonItem setBackButtonBackgroundImage:[UIImage imageNamed:@"back_arrow.png"] forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     [self.navigationController setNavigationBarHidden:NO];
 }
